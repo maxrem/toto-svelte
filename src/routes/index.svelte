@@ -1,1 +1,1 @@
-<h1>Toto</h1>
+<h2 class="text-2xl">Home</h2>
