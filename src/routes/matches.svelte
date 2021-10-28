@@ -22,12 +22,13 @@
 </script>
 
 <script>
+    import { Datetime } from '../helpers';
     export let matches;
 </script>
 
-<h2 class="text-2xl">Matches</h2>
+<h2 class="text-3xl">Matches</h2>
 <ul>
     {#each matches as match}
-    <li><a href="/match/{match.id}">{match.start_datetime} {match.home_team.name} - {match.away_team.name}</a></li>
+    <li><a href="/match/{match.id}">{Datetime.format(match.start_datetime)} {match.home_team.name} - {match.away_team.name}</a></li>
     {/each}
 </ul>

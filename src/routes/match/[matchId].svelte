@@ -24,9 +24,10 @@
 </script>
 
 <script>
+    import { Datetime } from '../../helpers';
     export let match;
 </script>
 
-<h2>Match</h2>
-<p>{match.start_datetime}</p>
-<p>{match.home_team.name} - {match.away_team.name}</p>
+<h2 class="text-3xl">{match.home_team.name} - {match.away_team.name}</h2>
+<p>{Datetime.format(match.start_datetime)}</p>
+
