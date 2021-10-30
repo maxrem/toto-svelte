@@ -1,8 +1,10 @@
 <script>
     import { apiAddr } from '../helpers';
 
-    let username = 'john-doe';
-    let email = 'johndoe@test.com';
+    // TODO remove debug default values
+    let randomId = Math.floor(Math.random() * 1000000000);
+    let username = 'john-doe' + randomId;
+    let email = 'johndoe' + randomId + '@test.com';
     let password = 'Welkom01';
 
     const submitForm = async () => {
@@ -18,9 +20,8 @@
             })
         });
 
-        const json = await res.json();
-        result = JSON.stringify(json);
-        console.debug(result);
+        const resJson = await res.json();
+        console.log(resJson.jwt); // TODO do something with result
     };
 </script>
 
