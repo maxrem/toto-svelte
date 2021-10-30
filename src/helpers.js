@@ -4,3 +4,5 @@ export const Datetime = {
         return datetime.toLocaleString('nl-NL', { timeZone: 'Europe/Amsterdam' }); // TODO should be UTC, or move to config
     }
 }
+
+export const apiAddr = 'http://localhost:1337';
