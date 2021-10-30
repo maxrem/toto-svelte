@@ -1,6 +1,14 @@
 <script>
     import { apiAddr } from '../helpers';
 
+    let jwt;
+
+    try {
+        jwt = localStorage.jwt
+    } catch (e) {
+        console.log('Ignoring ' + e);
+    }
+
     // TODO remove debug default values
     let randomId = Math.floor(Math.random() * 1000000000);
     let username = 'john-doe' + randomId;
@@ -21,11 +29,18 @@
         });
 
         const resJson = await res.json();
-        console.log(resJson.jwt); // TODO do something with result
+        try {
+            localStorage.jwt = resJson.jwt;
+        } catch (e) {
+            console.log('Ignoring ' + e);
+        }
     };
 </script>
 
 <h2 class="text-3xl">Register</h2>
+{#if jwt}
+<p>You are already logged in...</p>
+{:else}
 <form on:submit|preventDefault={submitForm}>
     <div>
         <label for="username">Username</label>
@@ -51,3 +66,4 @@
         />
     </div>
 </form>
+{/if}
